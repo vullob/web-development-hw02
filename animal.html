@@ -1,0 +1,52 @@
+<!doctype HTML>
+
+<html>
+  <head>
+      <style>
+        .red { color: red; }
+        .blue { color: blue; }
+        .yellow { color: yellow; }
+        .green { color: green; }
+        .purple { color: purple; }
+        .orange { color: orange; }
+        .brown { color: brown; }
+        .pink { color: pink; }
+        h1 { display: inline-block }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          text-align: center;
+        }
+        th, td {
+          padding: 8px;
+        }
+      </style>
+  </head>
+  <body>
+      <h1 class="red">P</h1>
+      <h1 class="blue">A</h1>
+      <h1 class="yellow">N</h1>
+      <h1 class="green">G</h1>
+      <h1 class="purple">O</h1>
+      <h1 class="orange">L</h1>
+      <h1 class="brown">I</h1>
+      <h1 class="pink">N</h1>
+      <br/>
+      <table class="table">
+         
+      </table>
+      <a href="https://www.w3schools.com/html/default.asp" target="_blank" rel="noreferrer noopener">W3Schools html tutorial</a> <br/>
+      <a href="https://www.w3schools.com/css/default.asp" target="_blank" rel="noreferrer noopener">W3Schools CSS tutorial</a> <br/>
+      <a href="https://en.wikipedia.org/wiki/Pangolin" target="_blank" rel="noreferrer noopener">Pangolin Wikipedia Page</a>
+  </body>
+  <script>
+    let table = document.querySelector('.table');
+
+    for(let i = 0; i < 8; i++){
+      table.innerHTML += `<tr><td>${i}</td><td>${Math.pow(2, i)}</td></tr>`
+    }
+  </script>
+</html>
