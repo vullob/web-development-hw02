@@ -23,6 +23,13 @@
         th, td {
           padding: 8px;
         }
+        h1 {
+          display: inline;
+        }
+        #img{
+          width: 225px;
+          height: 400px;
+        }
       </style>
   </head>
   <body>
@@ -35,6 +42,7 @@
       <h1 class="brown">I</h1>
       <h1 class="pink">N</h1>
       <br/>
+      <img src="./pangolin.jpg"/>
       <table>
         <tbody>
         </tbody>
@@ -44,7 +52,7 @@
       <a href="https://en.wikipedia.org/wiki/Pangolin" target="_blank" rel="noreferrer noopener">Pangolin Wikipedia Page</a>
   </body>
   <script>
-    let table = document.querySelector('table');
+    const table = document.querySelector('table');
 
     for(let i = 0; i < 8; i++){
       table.innerHTML += `<tr><td>${i}</td><td>${Math.pow(2, i)}</td></tr>`
