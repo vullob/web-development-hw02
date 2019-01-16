@@ -6,9 +6,7 @@ window.calc = (function() {
   "use strict";
   const mode1 = 0, mode2 = 1, mode3 = 2, add = "+", subtract = "-", multiply = "x", divide = "/";
   let displayVal = "", val1 = 0, val2 = 0, operation,  mode = mode1;
-  // switch between modes on either an operation or =
-  //
-  // event handler - needs to access the existing input
+
   const handleNumber = (input) => {
     switch(mode) {
       case mode1:
@@ -27,7 +25,6 @@ window.calc = (function() {
       default:
         return;
     }
-    debugger;
     updateDisplayVal();
   }
 
@@ -39,8 +36,6 @@ window.calc = (function() {
   // perform operation and set to val1
   // clear val2
   // set displayval to string of calculated value
-  // set to mode3
-  //
   const calculate = () => {
     if(mode === mode1) return;
     switch(operation){
@@ -57,20 +52,16 @@ window.calc = (function() {
         val1 = val1/val2;
         break;
     }
-    debugger;
     val2 = 0;
     displayVal = val1.toString();
   }
 
-  // dependes on mode:
-  // *****TODO****** perhaps add mode for when an operation has been input but a val2 has not (would update operations)
-  //
-  //
   // if in first mode, just set operation , reset display val, and switch to second mode
   //
   // if in second mode:
   //  a second value has not been input:
   //     - set operation to oper
+  //
   // if in third mode:
   //  a second value has been input:
   //     - calculate value and store in val1
@@ -94,7 +85,6 @@ window.calc = (function() {
       default:
         return;
     }
-    debugger;
     updateDisplayVal();
   }
 
@@ -112,12 +102,12 @@ window.calc = (function() {
   const init = () => {
     const numbers = document.getElementsByClassName('number');
     for (let i = 0; i < numbers.length; i++){
-      let number = numbers[i];
+      const number = numbers[i];
       number.addEventListener('click', (e) => {handleNumber(e.target.value)});
     }
     const operations = document.getElementsByClassName('oper');
     for(let i = 0; i < operations.length; i++){
-      let oper = operations[i];
+      const oper = operations[i];
       oper.addEventListener('click', (e) => {handleOperation(e.target.value)});
     }
     const clear = document.getElementById('clear');
@@ -126,11 +116,4 @@ window.calc = (function() {
 
   // wait until dom loads to bind event listeners
   window.addEventListener('load', init, false);
-
-  return {
-    handleNumber: handleNumber,
-    handleOperation: handleOperation,
-    calculate: calculate
-  }
-
 })()
